@@ -29,4 +29,32 @@ public class SearchTests {
         Assert.assertEquals(4, searchItems.size());
         Assert.assertTrue(searchItems.stream().allMatch(item -> item.getName().contains(searchKey)));
         }
+
+        public void verifySearchResultForUnavailableProduct(){
+
+        String searchUnavailableItem = "Tennis ball";
+        WebDriver webDriver = null;
+
+        HomePage homepage = new HomePage(webDriver);
+        homepage.search(searchUnavailableItem);
+        String searchUnavailableMessage = homepage.getSearchResultMessage();
+
+        Assert.assertEquals("No results found for “tennis ball”. Check the spelling or use a different word or phrase",searchUnavailableMessage);
+
+
+        }
+
+        public void verifyBrandSpecificSearchResults(){
+
+        String searchBrand = "ACS";
+        WebDriver webDriver = null;
+
+        HomePage hp = new HomePage(webDriver);
+        hp. search(searchBrand);
+        List<Item> searchResults = hp.getSearchResult();
+
+
+        Assert.assertTrue(searchResults.stream().allMatch(item -> item.getName().contains(searchBrand)));
+
+        }
     }
