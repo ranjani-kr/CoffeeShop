@@ -1,5 +1,6 @@
 package coffeeshop;
 
+import coffeeshop.drivers.DriverCreator;
 import coffeeshop.models.Item;
 import coffeeshop.pages.HomePage;
 import coffeeshop.pages.LauncherPage;
@@ -16,7 +17,9 @@ public class SearchTests {
         //Arrange
         String searchItem = "Jeans";
         String searchKey = "Jean";
-        WebDriver webDriver = null;
+        String browser = "chrome";
+        WebDriver webDriver = new DriverCreator().create(browser);
+
         LauncherPage launcherPage = new LauncherPage(webDriver); // Assume webdriver is created and                                                                      // handy
         launcherPage.navigateTo("https://web-playground.ultralesson.com/");
 
@@ -26,9 +29,11 @@ public class SearchTests {
         List<Item> searchItems = homepage.getSearchItems();
 
         //Assert
-        Assert.assertEquals(4, searchItems.size());
+        Assert.assertEquals( searchItems.size(),4);
         Assert.assertTrue(searchItems.stream().allMatch(item -> item.getName().contains(searchKey)));
         }
+
+        /*This is just a skeleton for adding more tests
 
         public void verifySearchResultForUnavailableProduct(){
 
@@ -40,8 +45,6 @@ public class SearchTests {
         String searchUnavailableMessage = homepage.getSearchResultMessage();
 
         Assert.assertEquals("No results found for “tennis ball”. Check the spelling or use a different word or phrase",searchUnavailableMessage);
-
-
         }
 
         public void verifyBrandSpecificSearchResults(){
@@ -56,5 +59,5 @@ public class SearchTests {
 
         Assert.assertTrue(searchResults.stream().allMatch(item -> item.getName().contains(searchBrand)));
 
-        }
+        }*/
     }

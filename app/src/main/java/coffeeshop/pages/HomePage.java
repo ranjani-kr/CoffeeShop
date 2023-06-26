@@ -13,17 +13,19 @@ public class HomePage {
 
     WebDriver webDriver;
 
-    By searchIcon =By.className("modal__toggle-open icon icon-search");
+    By searchIcon =By.cssSelector("summary[aria-label='Search']");
     By searchBar = By.id("Search-In-Modal");
     By searchResults = By.cssSelector("li[id^='predictive-search-option'] a");
 
     By productName = By.cssSelector(".predictive-search__item-heading");
+    //By productName = By.xpath("//h3[contains(@class, 'predictive-search__item-heading')]");
     public HomePage(WebDriver webdriver){
         this.webDriver = webdriver;
     }
     public HomePage search(String searchItem){
         webDriver.findElement(searchIcon).click();
         webDriver.findElement(searchBar).sendKeys(searchItem);
+        System.out.println("I am inside search");
         return this;
     }
     public List<Item>getSearchItems(){
