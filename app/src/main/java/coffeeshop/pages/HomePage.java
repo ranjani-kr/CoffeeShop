@@ -9,33 +9,31 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomePage {
-
-    WebDriver webDriver;
-
+public class HomePage extends BasePage{
     By searchIcon =By.cssSelector("summary[aria-label='Search']");
     By searchBar = By.id("Search-In-Modal");
     By searchResults = By.cssSelector("li[id^='predictive-search-option'] a");
 
     By productName = By.cssSelector(".predictive-search__item-heading");
     //By productName = By.xpath("//h3[contains(@class, 'predictive-search__item-heading')]");
-    public HomePage(WebDriver webdriver){
-        this.webDriver = webdriver;
+    public HomePage(WebDriver webDriver){
+        super(webDriver);
     }
     public HomePage search(String searchItem){
-        webDriver.findElement(searchIcon).click();
-        webDriver.findElement(searchBar).sendKeys(searchItem);
-        System.out.println("I am inside search");
-        return this;
+       actions.click(searchIcon);
+       actions.type(searchBar, searchItem);
+       return this;
     }
     public List<Item>getSearchItems(){
-        List<WebElement> elements = webDriver.findElements(searchResults);
+        List<WebElement> elements = waits.waitUntilAllElementsAreVisible(searchResults);
         List<Item> items = new ArrayList<>();
         for (WebElement element : elements){
             String name = element.findElement(productName).getText();
             Item item = new Item();
             item.setName(name);
             items.add(item);
+            System.out.println(name);
+
         }
         return items;
     }
