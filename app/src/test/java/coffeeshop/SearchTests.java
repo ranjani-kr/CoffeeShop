@@ -34,8 +34,6 @@ public class SearchTests {
         Assert.assertTrue(searchProducts.stream().allMatch(product-> product.getName().contains(searchKey)));
         }
 
-        //This is just a skeleton for adding more tests
-
     @Test
     public void verifySearchResultForUnavailableProduct(){
 
@@ -56,17 +54,4 @@ public class SearchTests {
         Assert.assertEquals(searchUnavailableMessage,"No results found for “Tennis Racquet”. Check the spelling or use a different word or phrase.");
         }
 
-       /* public void verifyBrandSpecificSearchResults(){
-
-        String searchBrand = "ACS";
-        WebDriver webDriver = null;
-
-        HomePage hp = new HomePage(webDriver);
-        hp. search(searchBrand);
-        List<Item> searchResults = hp.getSearchResult();
-
-
-        Assert.assertTrue(searchResults.stream().allMatch(item -> item.getName().contains(searchBrand)));
-
-        }*/
     }
