@@ -1,6 +1,7 @@
 package coffeeshop.pages;
 
 import org.openqa.selenium.WebDriver;
+import coffeeshop.helpers.ShippingRelatedPrices;
 
 public class BasePage {
 
@@ -8,10 +9,12 @@ public class BasePage {
     protected WebDriver webDriver;
     protected PageActions actions;
 
+
     public BasePage(WebDriver webDriver){
         this.webDriver = webDriver;
         this.waits = new PageWaits(webDriver);
         this.actions = new PageActions(webDriver);
+
     }
 
 }
