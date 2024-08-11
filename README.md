@@ -89,19 +89,19 @@ You can run the E2E tests using two methods: via an IDE or the command line.
    ./gradlew test
 
 ## Project Structure
-CoffeeShop
-│
-├── src/
-│   ├── main/
-│   │   └── java/
-│   │       └── org.example/
-│   │           ├── drivers/         # Contains WebDriver setup and configuration classes
-│   │           ├── models/          # Contains models using Lombok
-│   │           ├── pages/           # Contains Page Object Model (POM) classes for each web page
-│   ├── test/
-│   │   └── java/
-│   │       └── org.example.tests/    # Contains TestNG test cases
-│   └── resources/                    # Test resources (e.g., data files)
-│
-├── build.gradle                      # Gradle build configuration
-└── README.md                         # Project documentation
+
+- CoffeeShop/
+  - src/
+    - main/
+      - java/
+        - org/example/
+          - drivers/ (WebDriver setup and configuration classes)
+          - models/ (Models using Lombok)
+          - pages/ (Page Object Model (POM) classes for each web page)
+    - test/
+      - java/
+        - org/example/tests/ (TestNG test cases)
+    - resources/ (Test resources, e.g., data files)
+  - build.gradle (Gradle build configuration)
+  - README.md (Project documentation)
+
