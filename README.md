@@ -1,13 +1,17 @@
-# CoffeeShop
-Web Automation of a Coffee Shop Site using Selenium 
+
 # Web Automation E2E Test 
-This repository contains an end-to-end (E2E) test flow for buying a product using Selenium WebDriver in Java. The project leverages various libraries and tools to ensure the tests are efficient, maintainable, and run across different browsers.
+https://web-playground.ultralesson.com/
+
 
 ## Automation Steps : 
--  **Go to website and login with valid credentials**
--  **Filter Products by price low to high**
--  **Add first two items from the product list**
--  **checkout cart by providing shipping details and completing the purchase**
+-  **Go to website**
+-  **Search product Jeans and verify the list**
+-  **Add first product**
+-  **Go to cart and verify cart**
+-  **Create account and enter shipping information**
+-  **Continue to payment enter card details and paynow**
+-  **Verify orderconfirmation**
+-  
 
 ## Technologies Used
 
@@ -51,7 +55,7 @@ To set up the project locally, follow these steps:
 3. **Clone the repository**:
 
    ```bash
-   git clone git@github.com:ranjani-kr/SauceDemoWebAutomation.git
+   git clone git@github.com:ranjani-kr/CoffeeShop.git
 
 4. **Navigate into the cloned directory:**
     ```bash
@@ -85,7 +89,7 @@ You can run the E2E tests using two methods: via an IDE or the command line.
    ./gradlew test
 
 ## Project Structure
-SauceDemoWebAutomation
+CoffeeShop
 │
 ├── src/
 │   ├── main/
